@@ -19,3 +19,10 @@ header, main, footer{
 .to-do-section, #to-do-list, .to-do-item, .titel, #header-title, .to-do-span, form{
     border : 1px solid #3498db;
 }
+
+.red-text{
+    color: red;
+}
+.new-class{
+    background-color: bisque;
+}
