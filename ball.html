@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#ball{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: rgb(255, 29, 29);
+    margin-top: 100px;
+    margin-left: 150px;
+    position: relative;
+}
+
+#floor1{
+    width: 250px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: gray;
+    position: fixed;
+    left: 100px;
+    top: 85px;
+    z-index: -2;
+}
+
+#floor2{
+    width: 250px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: gray;
+    position: fixed;
+    left: 100px;
+    top: 900px;
+    z-index: -2;
+}
+    </style>
+</head>
+<body>
+    <div id="floor1"></div>
+    <div id="ball"></div>
+    <div id="floor2"></div>
+    <script src="./ball.js"></script>
+</body>
+</html>
