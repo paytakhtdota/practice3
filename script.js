@@ -142,4 +142,17 @@ document.querySelector("#ref-link").setAttribute("my-attribute","new-attribute")
 result = document.querySelector("#ref-link").getAttribute("my-attribute");
 console.log(result);
 
- 
+// کپی کردن یک المنت برای ایجاد  یک المنت جدید
+let myNewLi = document.querySelector("ul li").cloneNode(true);
+myNewLi.querySelector("span").innerText = "dummy item Six";
+document.querySelector("#to-do-list").appendChild(myNewLi);
+//document.querySelector("#to-do-list :nth-child(6)").innerHTML = "dummy item Six";
+
+//   ایونت ها و ایونت لیسنر
+
+let newButton = document.createElement("button");
+newButton.innerText = "Click Me !";
+newButton.addEventListener("click", ()=> alert("Event Button Clicked!"));
+document.querySelector("section").appendChild(newButton);
+
+
