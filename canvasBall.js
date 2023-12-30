@@ -9,12 +9,13 @@ function randomMaker(min, max) {
 }
 
 class Ball {
-    constructor() {
+    constructor(coordinateX,coordinateY) {
+        this.baseR= 50;
         this.r = randomMaker(10, 75);
-        this.x = randomMaker(0 + this.r, window.innerWidth - this.r);
-        this.y = randomMaker(0 + this.r, window.innerHeight - this.r);
-        this.vx = (Math.random() - 0.5) * 50;
-        this.vy = (Math.random() - 0.5) * 50;
+        this.x = coordinateX ||  randomMaker(0 + this.r, window.innerWidth - this.r);
+        this.y = coordinateY || randomMaker(0 + this.r, window.innerHeight - this.r);
+        this.vx = (Math.random() - 0.5) * 5;
+        this.vy = (Math.random() - 0.5) * 5;
         this.color = "#"+randomMaker(4369, 65535).toString(16);
         this.draw();
     }
@@ -38,7 +39,7 @@ class Ball {
 }
 
 let balls = [];
-for (let i= 0; i<40; i++){
+for (let i= 0; i<20; i++){
     balls.push(new Ball);
 }
 
@@ -51,6 +52,29 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
+
+document.addEventListener("click",function(e){
+    balls.push(new Ball(e.clientX,e.clientY))
+   
+})
+
+document.addEventListener("mousemove",function(e){
+    balls.forEach(ball =>{
+        let distance = Math.sqrt(Math.pow((e.clientX - ball.x),2)
+        + Math.pow((e.clientY - ball.y),2)) + ball.r;
+        if(distance < 250 && ball.r < ball.baseR * 4 ){
+            ball.r += 1;
+        }else if(ball.r > ball.baseR){
+            ball.r -= 1;
+        }
+    })
+   })
+
+window.addEventListener("resize", function(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+})
 
 
 
